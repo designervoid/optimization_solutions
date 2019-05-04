@@ -1,4 +1,8 @@
 import copy
+import time
+
+
+start_time = time.time()
 
 '''
     Pure Python/Numpy implementation of the Nelder-Mead algorithm.
@@ -118,3 +122,6 @@ if __name__ == "__main__":
         return (10 ** -6) / np.sqrt(((x[0] ** 2 - 0.001**2) ** 2 + ((x[0] / x[1]) * 0.001)**2))
 
     print(nelder_mead(f, np.array([0.5, 0.5, 0.5])))
+
+
+print("--- algorithm complete in %s seconds ---" % (time.time() - start_time))
