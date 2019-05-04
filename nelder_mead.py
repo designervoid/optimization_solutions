@@ -8,7 +8,7 @@ import copy
 
 def nelder_mead(f, x_start,
                 step=0.1, no_improve_thr=10e-6,
-                no_improv_break=10, max_iter=0,
+                no_improv_break=4, max_iter=0,
                 alpha=1., gamma=2., rho=-0.5, sigma=0.5):
     '''
         @param f (function): function to optimize, must return a scalar score
@@ -38,8 +38,12 @@ def nelder_mead(f, x_start,
 
     # simplex iter
     iters = 0
+    global step_alg
+    step_alg = 0
     while 1:
         # order
+        step_alg += 1
+        print('Iteration: {}'.format(step_alg))
         res.sort(key=lambda x: x[1])
         best = res[0][1]
 
