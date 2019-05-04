@@ -45,6 +45,6 @@ X, Y = np.meshgrid(X, Y)
 Z = rosen(np.array([X,Y]))
 
 # Рисуем поверхность
-surf = ax.plot_surface(X, Y, Z, cmap=cm.coolwarm)
+surf = ax.plot_surface(X, Y, 10**6/Z, cmap=cm.coolwarm)
 plt.show()
 print("--- algorithm complete in %s seconds ---" % (time.time() - start_time))
